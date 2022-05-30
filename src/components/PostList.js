@@ -1,7 +1,8 @@
 import React from "react";
 import PostDetail from "./PostDetail";
+import { connect } from "react-redux";
 
-export default function PostList() {
+function PostList() {
   return (
     <div className="container">
       <div className="row">
@@ -10,3 +11,11 @@ export default function PostList() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+
+export default connect(mapStateToProps)(PostList);
