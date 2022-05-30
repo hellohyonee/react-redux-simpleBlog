@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AddPost() {
   return (
-    <div className="container">
+    <div className="container" style={{ margin: "4rem auto" }}>
       <h5 className="blue-text center-align">HyoneeBlog</h5>
       <form>
         <div className="input-field">
