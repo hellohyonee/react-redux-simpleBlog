@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default function PostDetail(props) {
+function PostDetail(props) {
   const { post } = props;
   return (
     <div className="col s12 mg">
@@ -16,3 +17,5 @@ export default function PostDetail(props) {
     </div>
   );
 }
+
+export default connect()(PostDetail);
