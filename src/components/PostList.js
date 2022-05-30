@@ -2,11 +2,12 @@ import React from "react";
 import PostDetail from "./PostDetail";
 import { connect } from "react-redux";
 
-function PostList() {
+function PostList(props) {
+  const { posts } = props;
   return (
     <div className="container">
       <div className="row">
-        <PostDetail />
+        {posts && posts.map((post) => <PostDetail post={post} key={post.id} />)}
       </div>
     </div>
   );
