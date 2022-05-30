@@ -6,7 +6,15 @@ const initialState = {
 };
 
 const postReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "DELETE_POST":
+      const newPost = state.posts.filter((post) => post.id !== action.id);
+      return {
+        posts: newPost,
+      };
+    default:
+      return state;
+  }
 };
 
 export default postReducer;
