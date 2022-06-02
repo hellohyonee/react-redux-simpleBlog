@@ -1,16 +1,30 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
-export default function AddPost() {
-  const [post, setPost] = useState({ post: { id: 3, title: "", content: "" } });
+function AddPost(props) {
+  const [post, setPost] = useState({
+    post: {
+      id: 0,
+      title: "",
+      content: "",
+    },
+  });
 
   const handelChange = (e) => {
-    setPost({ post: { ...post.post, [e.target.name]: e.target.value } });
+    setPost({
+      post: {
+        ...post.post,
+        [e.target.name]: e.target.value,
+      },
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(post.post);
-    setPost({ post: { title: "", content: "" } });
+    props.createPost(post.post);
+    setPost({
+      post: { title: "", content: "" },
+    });
   };
 
   return (
@@ -49,3 +63,13 @@ export default function AddPost() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: (post) => {
+      dispatch({ type: "ADD_POST", post });
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddPost);
