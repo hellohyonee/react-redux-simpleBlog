@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 function AddPost(props) {
   const [post, setPost] = useState({
     post: {
-      id: 0,
+      id: "",
       title: "",
       content: "",
     },
@@ -23,7 +24,7 @@ function AddPost(props) {
     e.preventDefault();
     props.createPost(post.post);
     setPost({
-      post: { title: "", content: "" },
+      post: { id: uuidv4(), title: "", content: "" },
     });
   };
 
