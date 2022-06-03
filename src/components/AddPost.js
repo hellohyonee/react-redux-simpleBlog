@@ -69,7 +69,7 @@ function AddPost(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     createPost: (post) => {
-      dispatch({ type: "ADD_POST", post });
+      dispatch(addPost(post));
     },
   };
 };
