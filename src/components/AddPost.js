@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addPost } from "../store/actions/postAction";
 
 function AddPost(props) {
   const [post, setPost] = useState({

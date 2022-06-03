@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { deletePost } from "../store/actions/postAction";
 
 function PostDetail(props) {
   const { post } = props;
