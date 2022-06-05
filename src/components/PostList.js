@@ -1,9 +1,9 @@
 import React from "react";
 import PostDetail from "./PostDetail";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function PostList(props) {
-  const { posts } = props;
+export default function PostList() {
+  const { posts } = useSelector((state) => state);
   return (
     <div className="container">
       <div className="row">
@@ -12,11 +12,3 @@ function PostList(props) {
     </div>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    posts: state.posts,
-  };
-};
-
-export default connect(mapStateToProps)(PostList);
