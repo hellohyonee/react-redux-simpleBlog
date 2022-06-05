@@ -24,7 +24,7 @@ function PostDetail(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     deletePost: (id) => {
-      dispatch({ type: "DELETE_POST", id });
+      dispatch(deletePost(id));
     },
   };
 };
